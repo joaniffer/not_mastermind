@@ -60,12 +60,19 @@ function onGuess() {
   }
 
   let hints = evaluateGuess();
+  populateHints(hints);
   if (hints.length === 4 && !hints.includes('o')) {
-    console.log('win');
+    for (let i = 0; i < 4; i++) {
+      let solCell = document.getElementById(`sol${i}`);
+      solCell.textContent = '';
+      solCell.className = `solution cell ${theSolution[i]} win`;
+
+      let guessCell = document.getElementById(`row${currentRow}cell${i}`);
+      guessCell.className = `${guessCell.className} win`;
+    }
   } else if (currentRow === 11) {
     console.log('lose');
   } else {
-    populateHints(hints);
     setupNextRow(currentRow + 1);
   }
 }
