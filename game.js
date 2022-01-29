@@ -1,5 +1,17 @@
 var currentRow, unfilledCells;
 
+let sumbmitButton = document.createElement('button');
+sumbmitButton.style = `
+  width: ${cellWidth*.7}px;
+  height: ${cellWidth*.7}px;
+  border-radius: ${cellWidth/2}px;
+  margin: ${cellWidth*.15}px;
+  font-family: 'Audiowide', sans-serif;
+  font-size: ${cellWidth/2}px`;
+sumbmitButton.className = 'submit';
+sumbmitButton.textContent = '>';
+sumbmitButton.onclick = onGuess;
+
 function randInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -104,6 +116,15 @@ function deactivateRow(row) {
     cell.style = `height: ${cellWidth/2}px; width: ${cellWidth}px;`;
     cell.onclick = undefined;
   }
+
+  let sub = submitsDiv.children[11 - row];
+  sub.className = '';
+  sub.style = `
+    width: 1px;
+    height: ${cellWidth/2}px;
+    margin: 5px 0;
+    border: 1px solid transparent;`;
+  sub.removeChild(sumbmitButton);
 }
 
 function cellOnClick(cell) {
@@ -140,10 +161,12 @@ function setupNextRow(row) {
   }
 
   let sub = submitsDiv.children[11 - row];
+  sub.className = 'hasButton';
+  sub.appendChild(sumbmitButton);
 }
 
 ///////////////////////////////
-////// SETUP PEG ACTIONS //////
+////// SETUP FILL ACTIONS /////
 ///////////////////////////////
 
 function pegOnClick(c) {
