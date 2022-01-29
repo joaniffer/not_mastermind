@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Audiowide|Yanone+Kaffeesatz'>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <h1>Not Mastermind</h1>
+    <script src="./populate.js"></script>
+    <script src="./game.js"></script>
+    <div class="instructions">
+      <p>Welcome to Not Mastermind.</p>
+      <p>
+        The goal of this game is to guess the order of four random colors. 
+        A color may be used more than once. By the pigeonhole principle (sorry), 
+        not every color is used.
+      </p>
+      <p>
+        After each guess, 0 to 4 pips will appear to the left of your guess. An 
+        unfilled pip denotes a correct color in the wrong spot. A filled pip denotes
+        a correct color in the correct spot. HOWEVER, the location of the pip does 
+        not correspond to a location of your guess.
+      </p>
+      <p><b>Controls:</b></p>
+      <p><s>
+        If a cell is selected (by clicking on an unfilled cell), clicking a color 
+        peg will fill that cell.</s> Otherwise, the leftmost unfilled cell will be
+        filled.
+      </p>
+      <p>
+        You can click on a filled cell to clear it.
+      </p>
+      <p><s>
+        You can type the character of the color peg instead of clicking a color peg, 
+        and you can type &lt;enter&gt; instead of clicking the submit button.
+      </s></p>
+      <p>
+        Refreshing the page will give you a new puzzle.
+      </p>
+      <p>
+        Yes I am aware the solution can be found in the developer console. This is 
+        an open source, static web page, what did you expect?
+      </p>
+    </div>
+  </body>
+</html>

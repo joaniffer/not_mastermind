@@ -1,0 +1,138 @@
+html, body {
+  width: 100vw;
+  margin: 0;
+  background: #333333;
+}
+
+.instructions {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  width: 26vw;
+}
+
+.instructions p {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: lightgray;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: .15;
+}
+
+h1 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 50;
+  text-align: center;
+  margin: 20px 0;
+  color: lightgray;
+}
+
+.board {
+  width: 50vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.hints, .submits {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.hints {
+  align-items: end;
+}
+
+.hints > div {
+  margin: 5px 10px;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.pegsTray {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  margin: 5px 2px;
+  padding: 0;
+  border: 1px solid lightgray;
+  background: gray;
+  box-sizing: unset;
+}
+
+.cell p {
+  display: none;
+  margin: 0;
+}
+
+.cell.filled:hover p {
+  font-family: 'Audiowide', sans-serif;
+
+  display: block;
+  -webkit-text-stroke: 1px gray;
+  -webkit-text-fill-color: rgba(255, 255, 255, .3);
+}
+
+.solution {
+  font-size: 35px;
+  font-family: 'Audiowide', sans-serif;
+  text-align: center;
+}
+
+.pegsTray {
+  border: 1px solid lightgray;
+  width: fit-content;
+}
+
+.peg:hover {
+  filter: brightness(1.5);
+}
+
+.pegsRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.red {
+  background: #D98D9D;
+}
+
+.yellow {
+  background: #E9D86E;
+}
+
+.green {
+  background: #99C1B9;
+}
+
+.blue {
+  background: #7F8FC7;
+}
+
+.purple {
+  background: #9A78D0;
+}
+
+.white {
+  background: #EBEBEB;
+}
