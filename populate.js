@@ -61,7 +61,7 @@ for (let i = 0; i < 12; i++) {
 
   // HINTS (hidden)
   let hint = document.createElement('div');
-  hint.style = `height: ${cellWidth/2}px; width: ${cellWidth};`;
+  hint.style = `height: ${cellWidth/2}px; width: ${cellWidth*1.2};`;
   hintsDiv.appendChild(hint);
 
   // SUBMITS (hidden)
