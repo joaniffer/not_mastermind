@@ -70,10 +70,61 @@ function onGuess() {
       let guessCell = document.getElementById(`row${currentRow}cell${i}`);
       guessCell.className = `${guessCell.className} win`;
     }
+    animateEnd();
   } else if (currentRow === 11) {
     console.log('lose');
   } else {
     setupNextRow(currentRow + 1);
+  }
+}
+
+function animateRow(row) {
+  return () => {
+    let cells = [...allRowsDiv.children[12 - row].children];
+    let solLeft = [];
+    let cellNames = ['', '', '', ''];
+    for (let j = 0; j < 4; j++) {
+      let c = getCellColor(cells[j]);
+      if (c === theSolution[j]) {
+        cellNames[j] = `${cells[j].className} end f`;
+      } else {
+        solLeft.push(theSolution[j]);
+      }
+    }
+
+    cells = cells.filter(c => c !== undefined);
+    for (let j = 0; j < cells.length; j++) {
+      let c = getCellColor(cells[j]);
+      if (cellNames[j]) {
+        continue;
+      }
+      if (solLeft.includes(c)) {
+        cellNames[j] = `${cells[j].className} end o`;
+        solLeft.splice(solLeft.indexOf(c), 1);
+      } else {
+        cellNames[j] = `${cells[j].className} end w`;
+      }
+    }
+
+    for (let j = 0; j < 4; j++) {
+      if (j === 0) {
+        cells[j].className = cellNames[j];
+      } else {
+        setTimeout(() => {
+          cells[j].className = cellNames[j];
+        }, j * 75 - 25);
+      }
+    }
+  }
+}
+
+function animateEnd() {
+  for (let i = currentRow - 1; i >= 0; i--) {
+    if (i === currentRow - 1) {
+      setTimeout(animateRow(i), 100);
+    } else {
+      setTimeout(animateRow(i), (currentRow - i) * 225 + 50);
+    }
   }
 }
 

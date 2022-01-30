@@ -101,6 +101,25 @@ h1 {
   box-shadow: 0 0 12px 2px white;
 }
 
+.cell.end {
+  transition-property: border, margin;
+  transition-duration: 75ms;
+}
+
+.cell.f, .cell.o {
+  border-width: 2px;
+  margin: 4px 1px;
+  border-color: white;
+}
+
+.cell.o {
+  border-style: dashed;
+}
+
+.cell.w {
+  border-color: transparent;
+}
+
 .solution {
   font-size: 35px;
   font-family: 'Audiowide', sans-serif;
